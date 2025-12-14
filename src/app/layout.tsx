@@ -29,7 +29,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href={favicon} type="image/x-icon" />
       </head>
       <body
-        className={`${poppins.className} ${cairo.className} overflow-x-hidden pt-[120px]`}
+        className={`${poppins.className} ${cairo.className} overflow-x-hidden pt-31.25`}
       >
         <Header />
         {children}
