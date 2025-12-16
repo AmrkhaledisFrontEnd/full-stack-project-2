@@ -1,5 +1,8 @@
 @import "tailwindcss";
-
+*{
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
 @theme {
   --color-primary: #14B8A6;
   --color-light: white;
@@ -14,4 +17,28 @@
   .transition-css {
     @apply transition-all duration-300
   };
+  .section-space {
+    @apply mt-20
+  }
+}
+
+
+.hero{
+  background-image: url(../../public/bgHero.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.hero{
+  position: relative;
+}
+.hero::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.608);
+}
+.hero *{
+  z-index: 20;
 }

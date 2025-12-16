@@ -15,10 +15,10 @@ function ProductsDesign({ products }: { products: any }) {
                                     <h2 className="font-semibold text-[20px]">{product.name}</h2>
                                     <span>{formatCurrency(product.price)}</span>
                                 </div>
-                                <p className="text-end">{product.description}</p>
+                                <p>{product.description}</p>
                             </div>
                         </Link>
-                        <Link href={`/product-details/${product.id}`} className="sm:hidden block mx-auto mb-2 bg-primary text-white py-2.5 px-4 w-[80%]  rounded text-center" >الذهاب لشراء هذا الكورس </Link>
+                        <Link href={`/product-details/${product.id}`} className="sm:hidden block mx-auto mb-2 bg-primary text-white py-2.5 px-4 w-[80%]  rounded text-center" >  Go buy this course</Link>
                     </li>
                 )) : <p>حالياً لا يوجد منتجات ارجع لاحقاً</p>}
             </ul>

@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
 import { Poppins ,Cairo} from "next/font/google";
 import "./globals.css";
+  import { ToastContainer } from 'react-toastify';
 import Header from "@/components/Header/Header";
-import favicon from "../../public/logo.svg"
 // =====================================================================================
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["500", "600", "700", "800", "900"]
 });
-const cairo = Cairo({
-  subsets: ["arabic"],
-  weight: ["500", "600", "700", "800", "900"]
-});
 
 export const metadata: Metadata = {
   title: "Store Courses",
-  description: "Store Courses",
+  description: "Our online course store offers a wide range of high-quality educational courses designed for learners of all levels. From programming and design to personal development and business skills, we provide engaging content that helps users achieve their goals efficiently. With easy navigation, secure payment options, and instant access to purchased courses, our platform makes learning convenient and enjoyable for everyone.",
+  icons: {
+    icon: "/logo.svg", 
+  },
 };
 
 export default function RootLayout({
@@ -25,14 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="shortcut icon" href={favicon} type="image/x-icon" />
-      </head>
       <body
-        className={`${poppins.className} ${cairo.className} overflow-x-hidden pt-31.25`}
+        className={`${poppins.className}  overflow-x-hidden`}
       >
-        <Header />
+      <Header/>
         {children}
+        <ToastContainer/>
       </body>
     </html>
   );

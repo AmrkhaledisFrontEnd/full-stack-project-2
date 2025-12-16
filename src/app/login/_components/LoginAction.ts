@@ -1,7 +1,7 @@
 "use server"
 import { LoginSchema } from "@/schemas/LoginSchema";
 import { LoginActionDataType } from "@/type";
-import { prisma } from "../../../../prisma";
+import { prisma } from "../../../prisma";
 import bcrypt from "bcryptjs";
 import { signIn } from "@/auth";
 // ====================================================================================
@@ -14,20 +14,13 @@ export const LoginAction = async (data: LoginActionDataType) => {
                 email: validation.data.email
             }
         })
-        if (!user) return { error: "This user does not exist" }
+        if (!user || !user.password) return { error: "This user does not exist" }
         const passwordHashed = await bcrypt.compare(validation.data.password, user.password)
-        if (!passwordHashed) return { error: "Incorrect password" }
+        if (!passwordHashed) return { error: "Incorrect email or password" }
         await signIn("credentials", {
             email: validation.data.email,
             password: validation.data.password,
             redirect: false
-        })
-        await prisma.session.create({
-            data: {
-                userId: user.id,
-                sessionToken: crypto.randomUUID(),
-                expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000)
-            }
         })
     } catch (error) {
         console.log(error)

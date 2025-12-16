@@ -11,7 +11,7 @@ function ProductsSection() {
         { id: 6, name: "Graphic Design", description: "كورس تصميم جرافيك يعلمك أساسيات الألوان والخطوط والتنسيق وكيفية عمل شعارات وبوسترات ومشاريع تطبيقية تساعدك على الاحتراف وبناء معرض أعمال قوي.", price: 255, image: image },
     ]
     return (
-        <section>
+        <section id="c">
             <div className="container-css flex flex-col gap-10">
                 <h1 className="sm:text-3xl text-2xl font-bold">Our Latest Products</h1>
                 <ProductsDesign products={products}/>

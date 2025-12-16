@@ -5,11 +5,14 @@ import { BiSolidCheckboxChecked } from "react-icons/bi";
 import { formatCurrency } from "@/lib/FormatCurrency";
 import ButtonCart from "@/app/product-details/[id]/_components/ButtonCart";
 import ProductsSection from "@/components/ProductsSection/ProductsSection";
+import { GetUser } from "@/components/GetUser";
+import { User } from "@prisma/client";
 // =======================================================================================
 async function page({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params
+    const user : null | User = await GetUser()
     return (
-        <main>
+        <main className="section-space ">
             <div className="container-css">
                 <Breadcrumb idProduct={id} pathname="products" />
                 <div className="my-15 flex md:items-center justify-between gap-5 md:flex-row flex-col">
@@ -19,7 +22,7 @@ async function page({ params }: { params: Promise<{ id: string }> }) {
                         <p className="sm:text-[15px] text-[13px] font-semibold">كورس تصميم جرافيك يعلمك أساسيات الألوان والخطوط والتنسيق وكيفية عمل شعارات وبوسترات ومشاريع تطبيقية تساعدك على الاحتراف وبناء معرض أعمال قوي</p>
                         <h3 className="flex items-center gap-1 text-gray-500 font-bold"><i className="text-primary text-3xl pt-1.5"><BiSolidCheckboxChecked /></i> توصيل فوري</h3>
                         <h2 className="text-primary xl:text-4xl text-2xl font-bold">{formatCurrency(9.99)}</h2>
-                        <ButtonCart />
+                        <ButtonCart user={user}/>
                     </div>
                 </div>
                 <ProductsSection/>
