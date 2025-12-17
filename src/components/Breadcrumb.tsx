@@ -1,6 +1,6 @@
 import { FaHome } from "react-icons/fa";
 // =======================================================================================================================
-function Breadcrumb({ idProduct, pathname }: { idProduct: string, pathname: string }) {
+function Breadcrumb({ idProduct, pathname }: { idProduct: number, pathname: string }) {
     return (
         <div>
             <nav className="flex" aria-label="Breadcrumb">

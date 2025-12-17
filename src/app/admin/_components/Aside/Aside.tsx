@@ -9,8 +9,8 @@ async function Aside() {
   const user: null | User = await GetUser()
   if (!user || user.role == "USER") return
   return (
-    <div className="p-7 bg-white border-r border-r-gray-100 h-[88dvh]">
-      <div className="flex flex-col justify-between h-full">
+    <div className="p-10 bg-white shadow rounded-2xl md:min-h-[88dvh]">
+      <div className="flex flex-col justify-between h-full md:h-full min-h-[300px] gap-10">
         <div className="flex flex-col gap-10">
           <div className="flex items-center gap-3 pb-3 border-b border-gray-200">
             <Image src={user.image ?? imageProfileDefault} alt="You Image" width={50} height={50} className="rounded-full object-cover border border-gray-600" />

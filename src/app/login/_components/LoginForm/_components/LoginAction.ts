@@ -1,7 +1,7 @@
 "use server"
 import { LoginSchema } from "@/schemas/LoginSchema";
 import { LoginActionDataType } from "@/type";
-import { prisma } from "../../../prisma";
+import { prisma } from "../../../../../prisma";
 import bcrypt from "bcryptjs";
 import { signIn } from "@/auth";
 // ====================================================================================
