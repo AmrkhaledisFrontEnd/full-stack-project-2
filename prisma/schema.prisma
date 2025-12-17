@@ -15,28 +15,40 @@ enum Role {
 
 // Models
 model User {
-  id            String    @id @default(cuid())
+  id            String         @id @default(cuid())
   name          String
-  email         String    @unique
+  email         String         @unique
   password      String?
   image         String?
-  role          Role      @default(USER)
+  role          Role           @default(USER)
   emailVerified DateTime?
   accounts      Account[]
-  createdAt     DateTime? @default(now())
-  updatedAt     DateTime? @updatedAt
+  createdAt     DateTime?      @default(now())
+  updatedAt     DateTime?      @updatedAt
+  userProducts  UserProducts[]
 }
 
 model Product {
-  id              Int      @id @default(autoincrement())
-  title           String
-  description     String
-  image           String
-  price           Float
-  categoryId      String
-  category        Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  image       String
+  price       Float
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model UserProducts {
+  id          String @id @default(cuid())
+  name        String
+  description String
+  image       String
+  price       Float
+  userId      String
+  quantity    Float  @default(1)
+  user        User   @relation(fields: [userId], references: [id])
 }
 
 model Category {
