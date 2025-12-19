@@ -13,7 +13,7 @@ async function page() {
         {users.length > 0 ? (
           users.map((user: User) => (
             <li
-              className="flex items-center justify-between bg-gray-100 p-3 rounded"
+              className="flex sm:flex-row flex-col sm:gap-0 gap-3 items-center justify-between bg-gray-100 p-3 rounded"
               key={user.id}
             >
               <Image
@@ -21,10 +21,10 @@ async function page() {
                 alt="User Image"
                 width={50}
                 height={50}
-                className="rounded-full"
+                className="rounded-full border-2 border-gray-300 sm:w-12.5 sm:h-12.5 w-16.25 h-16.25"
               />
-              <h2>{user.name}</h2>
-              <h2>{user.email}</h2>
+              <h2 className="sm:text-[15px] text-2xl">{user.name}</h2>
+              <h2 className="text-gray-500 font-bold">{user.email}</h2>
               <ButtonDeleteUser id={user.id} />
             </li>
           ))

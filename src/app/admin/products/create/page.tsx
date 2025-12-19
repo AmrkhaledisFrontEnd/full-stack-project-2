@@ -6,7 +6,7 @@ import CreateProductForm from "../_components/CreateProductForm/ProductForm";
 async function page() {
   const categories = await GetCategoriesDB();
   return (
-    <main className="w-1/2 ">
+    <main className="lg:w-1/2 w-full ">
       <CreateProductForm categories={categories} />
     </main>
   );
