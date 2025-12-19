@@ -78,7 +78,7 @@ const uploadImageToCLoudinary = async (image: File | null) => {
     if (image) formData.append("file", image);
     formData.append("pathnam", "products-images-store-courses");
     const res = await fetch(
-      `${process.env.NEXTAUTH_URL}/api/upload-image-product`,
+      `${process.env.AUTH_URL}/api/upload-image-product`,
       {
         method: "POST",
         body: formData,
