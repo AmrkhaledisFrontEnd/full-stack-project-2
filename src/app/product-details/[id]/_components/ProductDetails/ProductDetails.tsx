@@ -8,6 +8,7 @@ import { UserDB } from "@/type";
 // =============================================================================
 async function ProductDetails({ product }: { product: Product }) {
   const user: null | UserDB = await GetUser();
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   return (
     <div>
       <Breadcrumb idProduct={product.id} pathname="products" />
@@ -30,7 +31,7 @@ async function ProductDetails({ product }: { product: Product }) {
           <h2 className="text-primary xl:text-3xl text-2xl font-bold">
             {formatCurrency(product.price)}
           </h2>
-          <ButtonCart user={user} product={product}/>
+          <ButtonCart user={user} product={product} />
         </div>
       </div>
     </div>

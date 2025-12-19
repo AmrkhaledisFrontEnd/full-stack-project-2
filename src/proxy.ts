@@ -20,14 +20,25 @@ export default proxy(async (req: NextRequest) => {
       new URL("/admin/categories", req.nextUrl.origin)
     );
   if (pathname.startsWith("/cart")) {
+    if (user && user.userProducts.length < 1)
+      return NextResponse.redirect(new URL("/#products", req.nextUrl.origin));
+    if (!user)
+      return NextResponse.redirect(new URL("/login", req.nextUrl.origin));
+  }
+  if (pathname.startsWith("/checkout")) {
     if (!user || user.userProducts.length < 1)
       return NextResponse.redirect(new URL("/#products", req.nextUrl.origin));
-  }
-  if(pathname.startsWith("/checkout") ){
-    if(!user || user.userProducts.length < 1) return NextResponse.redirect(new URL("/#products",req.nextUrl.origin))
   }
 });
 
 export const config = {
-  matcher: ["/login", "/register", "/", "/admin/:path*", "/manage-account","/cart/:path*","/checkout/:path*"],
+  matcher: [
+    "/login",
+    "/register",
+    "/",
+    "/admin/:path*",
+    "/manage-account",
+    "/cart/:path*",
+    "/checkout/:path*",
+  ],
 };
