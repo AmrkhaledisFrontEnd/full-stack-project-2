@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { GetCategoriesDB } from "@/QueryDbCache/GetCategories";
 import { CategoryDB } from "@/type";
 import Input from "./_components/Input/Input";

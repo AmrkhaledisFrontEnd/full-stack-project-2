@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { GetAllUsers } from "@/QueryDbCache/GetAllUsers";
 import { User } from "@prisma/client";
 import Image from "next/image";
@@ -24,7 +25,7 @@ async function page() {
               />
               <h2>{user.name}</h2>
               <h2>{user.email}</h2>
-              <ButtonDeleteUser id={user.id}/>
+              <ButtonDeleteUser id={user.id} />
             </li>
           ))
         ) : (

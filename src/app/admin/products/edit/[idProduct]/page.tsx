@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { prisma } from "@/prisma";
 import CreateProductForm from "../../_components/CreateProductForm/ProductForm";
 import { GetCategoriesDB } from "@/QueryDbCache/GetCategories";

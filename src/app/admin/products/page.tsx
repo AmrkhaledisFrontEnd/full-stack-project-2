@@ -1,5 +1,6 @@
+export const dynamic = "force-dynamic";
+
 import { GetCategoriesDB } from "@/QueryDbCache/GetCategories";
-import { GetProducts } from "@/QueryDbCache/GetProducts";
 import { CategoryDB } from "@/type";
 import { Product } from "@prisma/client";
 import Image from "next/image";
@@ -7,7 +8,6 @@ import Link from "next/link";
 import { MdAdd } from "react-icons/md";
 // ==========================================================================================
 async function page() {
-  const products = await GetProducts();
   const categories = await GetCategoriesDB();
   return (
     <main className="lg:w-[60%] md:w-[70%] w-full ">

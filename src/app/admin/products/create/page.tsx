@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { GetCategoriesDB } from "@/QueryDbCache/GetCategories";
 import CreateProductForm from "../_components/CreateProductForm/ProductForm";
 // ============================================================================
