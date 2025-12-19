@@ -4,6 +4,7 @@ import { RegisterACtionDataType } from "@/type";
 import { prisma } from "@/prisma";
 import bcrypt from "bcryptjs";
 import { signIn } from "@/auth";
+import { revalidatePath } from "next/cache";
 // ============================================================================
 export const RegisterAction = async (data: RegisterACtionDataType) => {
   const validation = RegisterSchema.safeParse(data);
@@ -26,8 +27,10 @@ export const RegisterAction = async (data: RegisterACtionDataType) => {
     await signIn("credentials", {
       email: validation.data.email,
       password: validation.data.password,
-      redirect:false
+      redirect: false,
     });
+    revalidatePath("/");
+    revalidatePath("/admin/users");
   } catch (error) {
     console.log(error);
     return { error: "Failed To Register" };

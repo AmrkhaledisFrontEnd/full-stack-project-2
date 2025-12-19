@@ -42,7 +42,6 @@ function LoginForm() {
       });
     setErrors({});
     router.refresh();
-    redirect("/");
   };
   return (
     <form
