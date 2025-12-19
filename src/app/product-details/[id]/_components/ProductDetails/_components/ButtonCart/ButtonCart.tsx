@@ -29,7 +29,9 @@ function ButtonCart({
       return toast.error(result?.error, {
         className: "toast-font",
       });
-    toast.success("The product has been added to the cart");
+    toast.success("The product has been added to the cart", {
+      className: "toast-font",
+    });
     router.refresh();
   };
   const userProduct = user?.userProducts.find(
