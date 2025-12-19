@@ -8,7 +8,6 @@ import { UserDB } from "@/type";
 // =============================================================================
 async function ProductDetails({ product }: { product: Product }) {
   const user: null | UserDB = await GetUser();
-  await new Promise((resolve) => setTimeout(resolve, 3000));
   return (
     <div>
       <Breadcrumb idProduct={product.id} pathname="products" />
