@@ -1,5 +1,4 @@
 "use client";
-
 import { toast } from "react-toastify";
 import { DeleteUserAction } from "./_components/DeleteUserAction";
 import { useRouter } from "next/navigation";

@@ -25,7 +25,7 @@ function ButtonCart({
       image: product.image,
       productId: String(product.id),
     });
-    if (!result?.error)
+    if (result?.error)
       return toast.error(result?.error, {
         className: "toast-font",
       });
