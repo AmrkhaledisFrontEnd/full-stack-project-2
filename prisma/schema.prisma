@@ -46,9 +46,10 @@ model UserProducts {
   description String
   image       String
   price       Float
-  userId      String
   quantity    Float  @default(1)
-  user        User   @relation(fields: [userId], references: [id])
+  userId      String
+  user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId   Int    @unique
 }
 
 model Category {

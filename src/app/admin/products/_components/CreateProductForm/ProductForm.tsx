@@ -137,7 +137,7 @@ function CreateProductForm({
             <input onChange={handleImage} type="file" hidden id="file" />
           </div>
         </div>
-        {errors.image && <p>{errors.image}</p>}
+        {errors.image && <p className="text-red-500">{errors.image}</p>}
       </div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <div className="flex flex-col gap-1">
@@ -157,7 +157,7 @@ function CreateProductForm({
             className="border border-gray-300 py-3 px-4 rounded-xl outline-none focus:border-primary transition-css"
             placeholder="Write the product name"
           />
-          {errors.title && <p>{errors.title}</p>}
+          {errors.title && <p className="text-red-500">{errors.title}</p>}
         </div>
         <div className="flex flex-col gap-1">
           <label htmlFor="description" className="text-slate-600">
@@ -176,7 +176,7 @@ function CreateProductForm({
             className="border border-gray-300 py-3 px-4 rounded-xl outline-none focus:border-primary transition-css"
             placeholder="Write the product description"
           />
-          {errors.description && <p>{errors.description}</p>}
+          {errors.description && <p className="text-red-500">{errors.description}</p>}
         </div>
         <div className="flex flex-col gap-1">
           <label htmlFor="price" className="text-slate-600">
@@ -195,14 +195,14 @@ function CreateProductForm({
             className="border border-gray-300 py-3 px-4 rounded-xl outline-none focus:border-primary transition-css"
             placeholder="Write the product price"
           />
-          {errors.price && <p>{errors.price}</p>}
+          {errors.price && <p className="text-red-500">{errors.price}</p>}
         </div>
         <SelectCategory
           categoryId={categoryId}
           setCategoryId={setCategoryId}
           categories={categories}
         />
-        {errors.categoryId && <p>{errors.categoryId}</p>}
+        {errors.categoryId && <p className="text-red-500">{errors.categoryId}</p>}
         <button
           disabled={loading}
           type="submit"

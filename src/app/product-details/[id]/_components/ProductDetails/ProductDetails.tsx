@@ -1,12 +1,13 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import { formatCurrency } from "@/lib/FormatCurrency";
 import Image from "next/image";
-import ButtonCart from "./_components/ButtonCart";
-import { Product, User } from "@prisma/client";
+import ButtonCart from "./_components/ButtonCart/ButtonCart";
+import { Product } from "@prisma/client";
 import { GetUser } from "@/components/GetUser";
+import { UserDB } from "@/type";
 // =============================================================================
 async function ProductDetails({ product }: { product: Product }) {
-  const user: null | User = await GetUser();
+  const user: null | UserDB = await GetUser();
   return (
     <div>
       <Breadcrumb idProduct={product.id} pathname="products" />
@@ -29,7 +30,7 @@ async function ProductDetails({ product }: { product: Product }) {
           <h2 className="text-primary xl:text-3xl text-2xl font-bold">
             {formatCurrency(product.price)}
           </h2>
-          <ButtonCart user={user} />
+          <ButtonCart user={user} product={product}/>
         </div>
       </div>
     </div>

@@ -1,19 +1,19 @@
 "use client";
-import { User } from "@prisma/client";
 import Image from "next/image";
 import imageProfileDefault from "../../../../images/profileDefualt.jpeg";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ButtonSignOut from "../../../ButtonSignOut/ButtonSignOut";
 import Links from "./_components/Links";
+import { UserDB } from "@/type";
 // ===========================================================================
-function UserProfile({ user }: { user: User }) {
+function UserProfile({ user }: { user: UserDB }) {
   if (!user) return;
   const [openProfile, setOpenProfile] = useState(false);
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (!(e.target instanceof Element)) return;
-      if (!e.target.closest(".button, .link")) {
+      if (!e.target.closest(".button, .link, .image")) {
         setOpenProfile(false);
       }
     };
@@ -29,12 +29,12 @@ function UserProfile({ user }: { user: User }) {
         alt="You Image"
         width={50}
         height={50}
-        className={`rounded-full button object-cover border-2  cursor-pointer ${
+        className={`rounded-full image object-cover border-2  cursor-pointer ${
           openProfile ? "border-4 border-gray-300" : "border-gray-600"
         }`}
       />
       {openProfile && (
-        <div className="bg-white shadow-2xl p-7 rounded-2xl flex flex-col gap-5 w-87.5 absolute right-0 mt-2">
+        <div className="bg-white shadow-2xl z-30 p-7 rounded-2xl flex flex-col gap-5 md:w-87.5 sm:w-80 w-65 absolute right-0 mt-2">
           <div className="flex flex-col gap-5 pb-5 border-b border-gray-200">
             <div className="flex items-center gap-3">
               <Image

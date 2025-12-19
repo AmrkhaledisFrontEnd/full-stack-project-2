@@ -5,7 +5,7 @@ import { CategoryDB } from "@/type";
 async function ProductsSection() {
   const categories = await GetCategoriesDB();
   return (
-    <section id="c" className="py-20">
+    <section id="products" className="py-20">
       <div className="container-css flex flex-col gap-10">
         {categories.length > 0
           ? categories.map((cat: CategoryDB) => (

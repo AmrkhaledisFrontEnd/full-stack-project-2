@@ -4,12 +4,12 @@ import Link from "next/link";
 import Links from "./_components/Links";
 import AuthLinks from "./_components/AuthLinks";
 import { GetUser } from "../GetUser";
-import { User } from "@prisma/client";
 import UserProfile from "./_components/UserProfile/UserProfile";
 import Cart from "./_components/Cart";
+import { UserDB } from "@/type";
 // ======================================================================================
 async function Header() {
-  const user: null | User = await GetUser();
+  const user: null | UserDB = await GetUser();
   return (
     <header className="bg-light fixed top-0 w-full z-50">
       <div className="container-css flex items-center justify-between">
@@ -25,7 +25,7 @@ async function Header() {
           <AuthLinks />
         ) : (
           <div className="flex items-center gap-5 flex-row-reverse">
-            <UserProfile user={user} /> <Cart />
+            <UserProfile user={user} /> <Cart userProducts={user.userProducts}/>
           </div>
         )}
       </div>

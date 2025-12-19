@@ -23,10 +23,9 @@ function ButtonSignOut() {
         <Loader />
       ) : (
         <>
-          {" "}
           <i className="text-[19px]">
             <FaSignOutAlt />
-          </i>{" "}
+          </i>
           Sign out
         </>
       )}

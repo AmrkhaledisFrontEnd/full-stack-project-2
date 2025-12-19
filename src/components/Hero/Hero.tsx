@@ -30,7 +30,7 @@ function Hero() {
         ))}
         <div className="mt-7 flex items-center gap-5 sm:flex-row flex-col w-full justify-center">
           <a
-            href={"#c"}
+            href={"#products"}
             className="bg-primary text-[20px] text-light sm:w-fit w-full text-center py-2.5 sm:px-10 px-6 rounded hover:scale-105 transition-css"
           >
             Get Started
