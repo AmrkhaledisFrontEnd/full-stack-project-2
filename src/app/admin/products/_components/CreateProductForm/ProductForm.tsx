@@ -13,6 +13,7 @@ import {
 import { toast } from "react-toastify";
 import Loader from "@/components/Loader";
 import { EditProductSchema } from "@/schemas/EditProductSchema";
+import ButtonDeleteProduct from "./_components/ButtonDeleteProduct/ButtonDeleteProduct";
 // =========================================================================
 interface InputsValue {
   title: string;
@@ -176,7 +177,9 @@ function CreateProductForm({
             className="border border-gray-300 py-3 px-4 rounded-xl outline-none focus:border-primary transition-css"
             placeholder="Write the product description"
           />
-          {errors.description && <p className="text-red-500">{errors.description}</p>}
+          {errors.description && (
+            <p className="text-red-500">{errors.description}</p>
+          )}
         </div>
         <div className="flex flex-col gap-1">
           <label htmlFor="price" className="text-slate-600">
@@ -202,7 +205,9 @@ function CreateProductForm({
           setCategoryId={setCategoryId}
           categories={categories}
         />
-        {errors.categoryId && <p className="text-red-500">{errors.categoryId}</p>}
+        {errors.categoryId && (
+          <p className="text-red-500">{errors.categoryId}</p>
+        )}
         <button
           disabled={loading}
           type="submit"
@@ -210,6 +215,7 @@ function CreateProductForm({
         >
           {loading ? <Loader /> : product ? "Save" : "Create"}
         </button>
+        {product && <ButtonDeleteProduct id={product.id} />}
       </form>
     </div>
   );
