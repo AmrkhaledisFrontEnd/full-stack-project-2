@@ -37,7 +37,7 @@ function Hero() {
           </a>
 
           <Link
-            href={"/"}
+            href={"/about"}
             className="shadow text-[20px] bg-white text-primary sm:w-fit w-full text-center py-2.5 sm:px-10 px-6 rounded hover:scale-105 transition-css"
           >
             Learn More
