@@ -5,6 +5,7 @@ import { CreateProductSchema } from "./schemas/CreateProductSchema";
 import { EditProductSchema } from "./schemas/EditProductSchema";
 import { RegisterSchema } from "./schemas/RegisterSchema";
 import { AddProductInCartSchema } from "./schemas/AddProductInCartSchema";
+import { EditProfileSchema } from "./schemas/EditProfileSchema";
 // =================================================================================================
 export type LoginActionDataType = z.infer<typeof LoginSchema>;
 export type CategoryDB = Prisma.CategoryGetPayload<{
@@ -21,3 +22,5 @@ export type CreateProductDataType = z.infer<typeof CreateProductSchema>;
 export type EditProductDataType = z.infer<typeof EditProductSchema>;
 export type RegisterACtionDataType = z.infer<typeof RegisterSchema>
 export type AddProductInCartDataType = z.infer<typeof AddProductInCartSchema>
+export type EditProfileActionDataType = z.infer<typeof EditProfileSchema>
+

@@ -81,7 +81,7 @@ export const ProductQuantityAction = async (
       });
     }
     if (actionType == "delete") {
-      await prisma.userProducts.delete({
+      await prisma.userProducts.deleteMany({
         where: {
           productId: userProduct.productId,
         },
