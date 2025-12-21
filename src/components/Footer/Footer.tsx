@@ -11,7 +11,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className=" text-gray-500 py-10 mt-15">
+    <footer className=" text-gray-500 py-10 mt-15 border-t border-gray-100">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         {/* Logo */}
         <div className="flex items-center space-x-3">

@@ -1,12 +1,12 @@
 "use client";
 import { Product } from "@prisma/client";
-import { redirect, useRouter } from "next/navigation";
+import { redirect, usePathname, useRouter } from "next/navigation";
 import { FiShoppingCart } from "react-icons/fi";
 import { AddProductInCartAction } from "./_components/AddProuductInCartAction";
 import { toast } from "react-toastify";
 import { UserDB } from "@/type";
 import ActionUserProducts from "./_components/ActionUserProducts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "@/components/Loader";
 // ========================================================================================
 function ButtonCart({
@@ -16,6 +16,10 @@ function ButtonCart({
   user: UserDB | null;
   product: Product;
 }) {
+  const pathname = usePathname();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const handleClick = async () => {
