@@ -18,7 +18,7 @@ async function Aside() {
               alt="You Image"
               width={100}
               height={100}
-              className="rounded-full w-17.5 h-17.5 object-cover border border-gray-600"
+              className="rounded-full w-17.5 h-17.5 object-cover border border-gray-600 shrink-0"
             />
             <div>
               <h2>{user.name}</h2>

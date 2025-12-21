@@ -21,7 +21,7 @@ async function page() {
                 alt="User Image"
                 width={50}
                 height={50}
-                className="rounded-full border-2 border-gray-300 sm:w-12.5 sm:h-12.5 w-16.25 h-16.25"
+                className="rounded-full border-2 border-gray-300 object-cover sm:w-12.5 sm:h-12.5 w-16.25 h-16.25"
               />
               <h2 className="sm:text-[15px] text-2xl">{user.name}</h2>
               <h2 className="text-gray-500 font-bold">{user.email}</h2>
